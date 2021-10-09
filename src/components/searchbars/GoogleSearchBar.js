@@ -23,9 +23,8 @@ const GoogleSearchBar = () => {
     return (
         <>
             <style jsx>{`
-
                 form {
-                    width:100%;
+                    width: 100%;
                 }
                 input {
                     height: 44px;
@@ -43,12 +42,19 @@ const GoogleSearchBar = () => {
                     margin-right: 10px;
                 }
 
+                #googleLogo {
+                    width: 24px;
+                    height: 24px;
+                    margin-left: 10px;
+                }
+
                 .inputWrapper {
                     background-color: white;
-                    max-width:561px;
-                    width: 60%;
+                    min-width: 337px;
+                    max-width: 561px;
+                    width: 33%;
                     border-radius: 22px;
-                    padding: 0px 40px 0px 15px;
+                    padding: 0px 15px 0px 15px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -75,9 +81,13 @@ const GoogleSearchBar = () => {
                         spellCheck="false"
                         role="combobox"
                         aria-live="polite"
-                        placeholder="Search Google or type a URL"
+                        placeholder="Search Google"
                     ></input>
                 </form>
+                <img
+                    id="googleLogo"
+                    src="chrome-extension://lnnkjcbeielalgjhejimhnhcpbfcbpoj/googleLogo.png"
+                />
             </div>
         </>
     )
