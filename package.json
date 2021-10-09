@@ -13,8 +13,7 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "styled-jsx": "^4.0.1",
-    "use-chrome-storage": "^1.0.4"
+    "styled-jsx": "^4.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
