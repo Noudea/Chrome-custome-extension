@@ -11,6 +11,17 @@ const NewTab = () => {
         width: '',
     })
 
+    const [liveWallpaperUrl, setLiveWallpaperUrl] = useState('')
+    
+    
+    const getStoreKey = (key) => {
+        chrome.storage.sync.get([key],(result)=> {
+            console.log(result[key])
+            setLiveWallpaperUrl(result[key])
+        })
+    }
+
+
     const getSize = () => {
         const height = window.innerHeight
         const width = window.innerWidth
@@ -26,6 +37,9 @@ const NewTab = () => {
         window.addEventListener('resize', () => {
             getSize()
         })
+
+        getStoreKey('liveWallpaperUrl')
+        console.log(liveWallpaperUrl)
     }, [])
 
     return (
@@ -64,7 +78,7 @@ const NewTab = () => {
                 autoPlay
                 muted
                 loop
-                src="https://cdn-cf-east.streamable.com/video/mp4/b51rt.mp4?Expires=1633978860&Signature=dJ~dZAHLHksMbltrp~-sCc5JSa-daNFdUxyxgPXc0J8h8SS2cgkwpSJkUErEA1IKJfygdcSj94EgHsOoBDZovs5PsRlfbtZhD7kcN~9g-rzc~7sYOcIzgulAOO71xxZcT1gY-u30j1eh-4AegXavhiSakm1K0Gs17TCwkpI0TJrQp5tT~bzXlp0gayzJiiOeuyEEKtpS-LhgKWa22SFMNLW8rGAyVcE5GoCDpgAY47-JhfqG60JFSit70N~RlCxa29YdBLoZWNBSQ066dEid2-NODgH4kvapllDSM0kLDNvXlKywSxGZhPg1vLVmhAFEsaGqUFFlL4aHnpx1ZLU7Kg__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ"
+                src={liveWallpaperUrl}
             ></video>
             <div className="contentContainer">
                 <GoogleSearchBar></GoogleSearchBar>
